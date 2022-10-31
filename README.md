@@ -33,7 +33,6 @@ Instruction for the installation and setting up of this project.
 3. Start the following scripts:
    -  ```python publish_random_number.py```    
    -  ```python publish_stats.py  ```
-   -  ```python publish_stats.py  ``` 
    - ```python display_stats.py  ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
