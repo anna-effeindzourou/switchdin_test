@@ -16,11 +16,11 @@
 
 Instruction for the installation and setting up of this project.
 
-2. Clone the repo
+- Clone the repo:
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/anna-effeindzourou/switchdin_test.git
    ```
-3. Install packages:
+- Install packages:
    ```
     pip install -r requirements.txt
    ```
@@ -28,9 +28,9 @@ Instruction for the installation and setting up of this project.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Usage
-1. RunRabbitMQ in docker container:
-   2. docker compose up
-3. Start the following scripts:
+- Run RabbitMQ in docker container:
+  -  ```docker compose up ```
+- Start the following scripts:
    -  ```python publish_random_number.py```    
    -  ```python publish_stats.py  ```
    - ```python display_stats.py  ```
