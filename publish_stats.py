@@ -11,7 +11,7 @@ from custom_exceptions import PublishError, BrokerConnectionError
 from utils import publish_to_queue, connect_broker
 
 
-logging.basicConfig(format='%(process)d-%(levelname)s-%(message)s')
+logging.basicConfig(format="%(process)d-%(levelname)s-%(message)s")
 
 
 class StatPublish:
@@ -42,12 +42,14 @@ def timer_add_compare(stat_publish, random_number_received):
     t_difference = datetime.now() - stat_publish.start_timer
 
     if t_difference >= stat_publish.duration_delta:
-        avg = stat_publish.current_sum/stat_publish.counter
+        avg = stat_publish.current_sum / stat_publish.counter
         msg = f"{stat_publish.stat_type}:{avg}"
         try:
             publish_to_queue(USERNAME, PASSWORD, QUEUE_STAT, msg)
         except PublishError as publish_stats_error:
-            raise PublishError(f"Could not publish the following message {msg} to {QUEUE_STAT} ({publish_stats_error})")
+            raise PublishError(
+                f"Could not publish the following message {msg} to {QUEUE_STAT} ({publish_stats_error})"
+            )
 
         stat_publish.reset()
 
@@ -80,15 +82,15 @@ def publish_stats():
             raise PublishError(f"Could not publish stats ({error})")
 
     channel.basic_consume(queue=QUEUE_NAME, on_message_callback=callback, auto_ack=True)
-    print(' [*] Waiting for messages. To exit press CTRL+C')
+    print(" [*] Waiting for messages. To exit press CTRL+C")
     channel.start_consuming()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         publish_stats()
     except KeyboardInterrupt:
-        print('Interrupted')
+        print("Interrupted")
         sys.exit(0)
     except Exception as error:
         logging.error(error)

@@ -31,9 +31,10 @@ Instruction for the installation and setting up of this project.
 1. RunRabbitMQ in docker container:
    2. docker compose up
 3. Start the following scripts:
-   3. ```python publish_random_number.py  ```
-   4.    ```python publish_stats.py  ``` 
-   5.    ```python display_stats.py  ```
+   -  ```python publish_random_number.py```    
+   -  ```python publish_stats.py  ```
+   -  ```python publish_stats.py  ``` 
+   - ```python display_stats.py  ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

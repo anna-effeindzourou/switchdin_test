@@ -11,7 +11,7 @@ from constants import QUEUE_NAME, USERNAME, PASSWORD
 from custom_exceptions import PublishError
 from utils import publish_to_queue
 
-logging.basicConfig(format='%(process)d-%(levelname)s-%(message)s')
+logging.basicConfig(format="%(process)d-%(levelname)s-%(message)s")
 
 
 def publish_random():
@@ -27,15 +27,17 @@ def publish_random():
     try:
         publish_to_queue(USERNAME, PASSWORD, QUEUE_NAME, random_number)
     except PublishError as publish_error:
-        raise PublishError(f"Could not publish random number to {QUEUE_NAME} ({publish_error})")
+        raise PublishError(
+            f"Could not publish random number to {QUEUE_NAME} ({publish_error})"
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         while True:
             publish_random()
     except KeyboardInterrupt:
-        print('Interrupted')
+        print("Interrupted")
         sys.exit(0)
     except PublishError as publish_error:
         logging.error(publish_error)
